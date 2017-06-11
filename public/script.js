@@ -19,6 +19,16 @@ const onKeyDown = () => {
 const submit = (e) => {
     const str = $('.textarea').val();
     appendSelfMessage(str);
+    if (state == "finishInit") {
+        if (str=="パチンコ") {
+            appendBotMessage("パチンコ行ったのかよ！");
+        } else {
+            fetchBotReply(str, function(reply) {
+                appendBotMessage(reply);
+            });
+        }
+    }
+
     if (state=="getNamePhase") {
         name = str;
         appendBotMessage(str + "さんですね。");
@@ -32,13 +42,7 @@ const submit = (e) => {
     } else if (state=="getDatePhase") {
         date = str;
         appendBotMessage(str + "ですね。それまでに頑張って返しましょう！");
-    }
-    else if (str=="パチンコ") {
-        appendBotMessage("パチンコ行ったのかよ！");
-    } else {
-        fetchBotReply(str, function(reply) {
-            appendBotMessage(reply);
-        });
+        state = "finishInit";
     }
     $('.textarea').val('');
 }
