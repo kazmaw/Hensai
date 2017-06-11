@@ -1,4 +1,3 @@
-
 var state = "getNamePhase";
 var name;
 var price;
