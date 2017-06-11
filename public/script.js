@@ -20,8 +20,47 @@ const submit = (e) => {
     const str = $('.textarea').val();
     appendSelfMessage(str);
     if (state == "finishInit") {
-        if (str=="パチンコ") {
-            appendBotMessage("パチンコ行ったのかよ！");
+        if (str.indexOf("ギャンブル") !== -1) {
+            appendBotMessage("そのお金を返済にあてましょう");
+        }
+        else if (str.indexOf("競馬") !== -1) {
+            appendBotMessage("そのお金を返済にあてましょう");
+        }
+        else if (str.indexOf("競艇") !== -1) {
+            appendBotMessage("そのお金を返済にあてましょう");
+        }
+        else if (str.indexOf("パチンコ") !== -1) {
+            appendBotMessage("そのお金を返済にあてましょう");
+        }
+        else if (str.indexOf("スロット") !== -1) {
+            appendBotMessage("そのお金を返済にあてましょう");
+        }
+        else if (str.indexOf("死ね") !== -1) {
+            appendBotMessage("そんなこと言わないで下さい");
+        }
+        else if (str.indexOf("死ぬ") !== -1) {
+            appendBotMessage("そんなこと言わないで下さい");
+        }
+        else if (str.indexOf("氏ね") !== -1) {
+            appendBotMessage("そんなこと言わないで下さい");
+        }
+        else if (str.indexOf("タヒね") !== -1) {
+            appendBotMessage("そんなこと言わないで下さい");
+        }
+        else if (str.indexOf("つらい") !== -1) {
+            appendBotMessage("そこをなんとか");
+        }
+        else if (str.indexOf("まけて") !== -1) {
+            appendBotMessage("そこをなんとか");
+        }
+        else if (str.indexOf("辛い") !== -1) {
+            appendBotMessage("そこをなんとか");
+        }
+        else if (str.indexOf("むり") !== -1) {
+            appendBotMessage("そこをなんとか");
+        }
+        else if (str.indexOf("無理") !== -1) {
+            appendBotMessage("そこをなんとか");
         } else {
             fetchBotReply(str, function(reply) {
                 appendBotMessage(reply);
