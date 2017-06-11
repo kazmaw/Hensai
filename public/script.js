@@ -71,7 +71,7 @@ const pushNotification = (cmd) => {
 }
 
 const appendSelfMessage = (str) => {
-    const message = '<li class="self"><div class="avatar"><img src="https://i.imgur.com/HYcn9xO.png" draggable="false"/></div><div class="msg"><p>'+str+'</p><time>20:18</time></div></li>'
+    const message = '<li class="self"><div class="avatar"><img src="https://i.imgur.com/DY6gND0.png" draggable="false"/></div><div class="msg"><p>'+str+'</p><time>20:18</time></div></li>'
     $(".chat").append(message);
 }
 
@@ -94,6 +94,6 @@ const callApi = (query, callback) => {
 }
 
 const appendBotMessage = (str) => {
-    const message = '<li class="other"><div class="avatar"><img src="https://i.imgur.com/DY6gND0.png" draggable="false"/></div><div class="msg"><p>'+str+'</p><time>20:18</time></div></li>'
+    const message = '<li class="other"><div class="avatar"><img src="./kima_03.png" draggable="false"/></div><div class="msg"><p>'+str+'</p><time>20:18</time></div></li>'
     $(".chat").append(message);
 }
