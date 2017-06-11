@@ -1,13 +1,42 @@
+var state = "getNamePhase";
+var name;
+var price;
+var date;
+
 const hoge = () => {
     console.log("hoge");
 }
+
+$(document).ready(function(){
+    if (state == "getNamePhase") {
+        appendBotMessage("こんにちは。はじめに、あなたの名前を教えてね。");
+    }
+});
+
 const submit = (e) => {
     const str = $('.textarea').val();
     appendSelfMessage(str);
-    fetchBotReply(str, function(reply) {
-        console.log(reply);
-        appendBotMessage(reply);
-    });
+    if (state=="getNamePhase") {
+        name = str;
+        appendBotMessage(str + "さんですね。");
+        appendBotMessage("次に借りた額を教えてください。");
+        state = "getPricePhase"
+    } else if (state=="getPricePhase") {
+        price = str;
+        appendBotMessage(str + "も借りてるんですか!?");
+        appendBotMessage("では、何年何月何日までに返す予定ですか？");
+        state = "getDatePhase"
+    } else if (state=="getDatePhase") {
+        date = str;
+        appendBotMessage(str + "ですね。それまでに頑張って返しましょう！");
+    }
+    else if (str=="パチンコ") {
+        appendBotMessage("パチンコ行ったのかよ！");
+    } else {
+        fetchBotReply(str, function(reply) {
+            appendBotMessage(reply);
+        });
+    }
     $('.textarea').val('');
 }
 
@@ -20,7 +49,7 @@ const fetchBotReply = (str, callback) => {
     callApi(str ,callback);
 }
 
-var callApi = (query, callback) => {
+const callApi = (query, callback) => {
     $.ajax({
         type: "POST",
         url: "https://api.a3rt.recruit-tech.co.jp/talk/v1/smalltalk",
