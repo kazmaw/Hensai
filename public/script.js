@@ -18,6 +18,7 @@ const onKeyDown = () => {
 
 const submit = (e) => {
     const str = $('.textarea').val();
+    if (str === '') return;
     appendSelfMessage(str);
     if (state == "finishInit") {
         if (str.indexOf("ギャンブル") !== -1) {
@@ -87,13 +88,13 @@ const submit = (e) => {
 }
 
 const pushNotification = (cmd) => {
-    const mockName = "借金太郎";
-    const mockAmount = 200;
-    const mockLimitDay = 60;
+    const mockName = name || "借金太郎";
+    const mockAmount = price || "200万円" ;
+    const mockLimitDay = date || "2017年6月28日";
     var lines = [];
     lines.push("おはようございます。");
-    lines.push(mockName+"さんの借金返済日まで、あと"+mockLimitDay+"日です。");
-    lines.push("返済額は、残り"+mockAmount+"万円です。");
+    lines.push(mockName+"さんの借金返済日は、"+mockLimitDay+"です。");
+    lines.push("返済額は、残り"+mockAmount+"です。");
     switch (cmd) {
         case 'dby':
             lines.push("あさってが返済日ですけど、まだ2日もあるから大丈夫！");
@@ -111,6 +112,7 @@ const pushNotification = (cmd) => {
     for(let i = 0; i < lines.length; i++) {
         appendBotMessage(lines[i]);
     }
+    return 'success'
 }
 
 
