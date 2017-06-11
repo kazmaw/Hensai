@@ -70,9 +70,25 @@ const pushNotification = (cmd) => {
     }
 }
 
+
 const appendSelfMessage = (str) => {
-    const message = '<li class="self"><div class="avatar"><img src="https://i.imgur.com/DY6gND0.png" draggable="false"/></div><div class="msg"><p>'+str+'</p><time>20:18</time></div></li>'
+    const time = makeTimeStr();
+    const message = '<li class="self"><div class="avatar"><img src="https://i.imgur.com/DY6gND0.png" draggable="false"/></div><div class="msg"><p>'+str+'</p><time>'+time+'</time></div></li>'
     $(".chat").append(message);
+}
+
+const appendBotMessage = (str) => {
+    const time = makeTimeStr();
+    const message = '<li class="other"><div class="avatar"><img src="./kima_03.png" draggable="false"/></div><div class="msg"><p>'+str+'</p><time>'+time+'</time></div></li>'
+    $(".chat").append(message);
+}
+
+const makeTimeStr = () => {
+    const today = new Date();
+    let result = "";
+    result += today.getHours() + ":";
+    result += today.getMinutes();
+    return result;
 }
 
 const fetchBotReply = (str, callback) => {
@@ -93,7 +109,3 @@ const callApi = (query, callback) => {
     });
 }
 
-const appendBotMessage = (str) => {
-    const message = '<li class="other"><div class="avatar"><img src="./kima_03.png" draggable="false"/></div><div class="msg"><p>'+str+'</p><time>20:18</time></div></li>'
-    $(".chat").append(message);
-}
