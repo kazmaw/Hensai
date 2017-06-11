@@ -1,8 +1,10 @@
-const hoge = () => {
-    console.log("hoge");
+const onKeyDown = () => {
+    // Enterキー押下時
+    if (event.keyCode == 13) {
+        submit()
+    }
 }
-const submit = (e) => {
-    console.log("hogehoge");
+const submit = () => {
     const str = $('.textarea').val();
     appendSelfMessage(str);
     $('.textarea').val('');
