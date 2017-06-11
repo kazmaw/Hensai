@@ -2,11 +2,10 @@ const hoge = () => {
     console.log("hoge");
 }
 const submit = (e) => {
-    if(window.event.keyCode==13) {
-        const str = $('.textarea').val();
-        appendSelfMessage(str);
-        $('.textarea').val('');
-    }
+    console.log("hogehoge");
+    const str = $('.textarea').val();
+    appendSelfMessage(str);
+    $('.textarea').val('');
 }
 
 const appendSelfMessage = (str) => {
