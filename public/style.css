@@ -1,3 +1,6 @@
+
+
+
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
 
@@ -332,3 +335,21 @@ input.textarea {
 .emojis:active {
     opacity: 0.9;
 }
+.bot-submit {
+    display: block;
+    position: relative;
+}
+.bot-submit button {
+    display: block;
+    position: fixed;
+    right: 7px;
+    bottom: 5px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #848484;
+    z-index: 100;
+}
+
+
